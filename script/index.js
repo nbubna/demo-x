@@ -1,1 +1,0 @@
-window.D = document;

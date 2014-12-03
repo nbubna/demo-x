@@ -1,15 +1,18 @@
 {
-  "name": "domx-docs",
+  "name": "demo-x",
   "version": "0.1.0",
-  "homepage": "https://esha.github.io/domx/",
+  "homepage": "https://esha.github.io/demo-x/",
   "authors": [
     "ESHA Research <nathan@esha.com>"
   ],
-  "description": "Documentation and demo for DOMx",
-  "main": "index.html",
+  "description": "Interactive, scripted code demo",
+  "main": "dist/demo-x.js",
   "keywords": [
     "domx",
-    "documentation"
+    "documentation",
+    "demo",
+    "code",
+    "scripted"
   ],
   "license": "MIT",
   "private": true,
@@ -22,11 +25,6 @@
   ],
   "dependencies": {
     "domx": "*",
-    "vista": "~2.0.1",
-    "normalize-css": "*",
-    "pocketgrid": "*",
-    "eventi": "~1.3.6",
-    "domx-stringify": "*",
-    "MutationObserver-shim": "~0.2.8"
+    "domx-stringify": "*"
   }
 }
