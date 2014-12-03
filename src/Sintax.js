@@ -5,10 +5,13 @@
  */
 var Sintax = {
 	highlight: function(pre) {
-		if(pre) pre.innerHTML = Sintax.syntaxHighlight(pre.innerText || pre.textContent);
-		else Array.prototype.forEach.call(document.getElementsByTagName("pre"), function(pre) {
+		if (pre) {
 			pre.innerHTML = Sintax.syntaxHighlight(pre.innerText || pre.textContent);
-		});
+		} else {
+			Array.prototype.forEach.call(document.getElementsByTagName("pre"), function(pre) {
+				pre.innerHTML = Sintax.syntaxHighlight(pre.innerText || pre.textContent);
+			});
+		}
 	},
 
 	syntaxHighlight: function(text) {
@@ -42,10 +45,12 @@ var Sintax = {
 		}
 
 		//And replace the keywords
-		for(var replace in keywords) {
-			keywords[replace].forEach(function(keyword) {
+		for (var replace in keywords) {
+			var type = keywords[replace];
+			for (var i=0; i<type.length; i++) {
+				var keyword = type[i];
 				text = text.replace(new RegExp("\\b(" + keyword + ")\\b", "g"), "<span class=\"keyword " + replace + "\">$1</span>");
-			})
+			}
 		}
 
 		//And now comments, line by line

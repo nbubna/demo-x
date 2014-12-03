@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     frame: {
       dist: {
         options: {
-          frame: 'src/plugin-frame.js',
+          frame: 'src/frame.js',
         },
         src: ['src/demo-x.js'],
         dest: 'dist/<%= pkg.name %>.js'
@@ -69,13 +69,13 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          jshintrc: 'src/.jshintrc-dist'
+          jshintrc: 'src/.jshintrc'
         },
         src: ['dist/*.js']
       },
       test: {
         options: {
-          jshintrc: 'test/.jshintrc'
+          jshintrc: 'src/.jshintrc'
         },
         src: ['test/**/*.js']
       },
@@ -96,7 +96,9 @@ module.exports = function(grunt) {
     },
   });
 
+  grunt.loadTasks('tasks');
+
   // Default task.
-  grunt.registerTask('default', ['clean', 'copy', 'jshint', 'uglify', 'compress', 'qunit']);
+  grunt.registerTask('default', ['clean', 'frame', 'jshint', 'uglify', 'compress', 'qunit']);
 
 };

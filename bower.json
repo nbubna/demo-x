@@ -1,7 +1,7 @@
 {
   "name": "demo-x",
   "version": "0.1.0",
-  "homepage": "https://esha.github.io/demo-x/",
+  "homepage": "http://esha.github.io/demo-x/",
   "authors": [
     "ESHA Research <nathan@esha.com>"
   ],
@@ -14,8 +14,22 @@
     "code",
     "scripted"
   ],
-  "license": "MIT",
-  "private": true,
+  "author": {
+    "name": "ESHA Research",
+    "email": "nathan@esha.com",
+    "url": "http://www.esha.com/"
+  },
+  "bugs": "https://github.com/esha/demo-x/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:esha/demo-x.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/esha/demo-x/master/LICENSE-MIT"
+    }
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
@@ -24,7 +38,11 @@
     "tests"
   ],
   "dependencies": {
-    "domx": "*",
-    "domx-stringify": "*"
+    "domx": ">0.13.0",
+    "domx-stringify": ">=0.1.0",
+    "MutationObserver-shim": "~0.2.8"
+  },
+  "devDependencies": {
+    "qunit": "~1.15.0"
   }
 }

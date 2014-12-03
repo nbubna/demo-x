@@ -1,6 +1,7 @@
 {
   "name": "demo-x",
   "version": "0.1.0",
+  "title": "DemoX",
   "description": "Interactive, scripted code demo",
   "main": "dist/demo-x.js",
   "scripts": {
@@ -15,29 +16,37 @@
     "documentation",
     "demo"
   ],
-  "author": "ESHA Research <nathan@esha.com>",
-  "license": "MIT",
+  "author": {
+    "name": "ESHA Research",
+    "email": "nathan@esha.com",
+    "url": "http://www.esha.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/esha/domx-stringify/blob/master/LICENSE-MIT"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/esha/demo-x/issues"
   },
   "homepage": "https://esha.github.io/demo-x/",
   "devDependencies": {
     "bower": "~1.3.12",
-    "grunt": "~0.4.5",
-    "grunt-autoprefixer": "~1.0.1",
-    "grunt-bake": "~0.3.12",
-    "grunt-bower-concat": "~0.4.0",
-    "grunt-cli": "~0.1.13",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-copy": "~0.7.0",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-uglify": "~0.6.0",
-    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-qunit": "~0.2.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-cli": "^0.1",
+    "grunt": "~0.4.1",
     "load-grunt-tasks": "~1.0.0",
     "time-grunt": "~1.0.0"
   },
   "dependencies": {
-    "grunt-concat-sourcemap": "~0.4.3",
-    "grunt-csswring": "~1.1.0"
+    "domx": ">0.10.x",
+    "domx-stringify": ">0.1.0"
   }
 }
