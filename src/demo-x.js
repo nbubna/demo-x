@@ -2,19 +2,16 @@ var DemoXProto,
     DemoX;
 if (D.registerElement) {
     DemoXProto = Object.create(HTMLElement.prototype);
-    DemoXProto.createdCallback = function(){ this.demoize(); };
-    DemoX = window.DemoX = D.registerElement('demo-x', {
-        prototype: DemoXProto
-    });
+    // wait to register until prototype is complete
 } else {
     DemoXProto = {};
     DemoX = window.DemoX = function DemoX(el) {
-        if (!el.demoize) {
+        if (!el.createdCallback) {
             for (var prop in DemoXProto) {
                 Object.defineProperty(el, prop,
                     Object.getOwnPropertyDescriptor(DemoXProto, prop));
             }
-            el.demoize();
+            el.createdCallback();
         }
     };
     DemoX.prototype = DemoXProto;
@@ -34,7 +31,7 @@ DemoXProto.timing = {
     minTicks: 8
 };
 
-DemoXProto.demoize = function() {
+DemoXProto.createdCallback = function() {
     var self = this;
     self.display = self.query('demo-dom');
     self.input = self.query('demo-in');
@@ -185,6 +182,13 @@ DemoXProto.animate = function(text, next, update, finish) {
 };
 
 DemoXProto.index = 0;
+
+// ok, register now that prototype is complete
+if (D.registerElement) {
+    DemoX = window.DemoX = D.registerElement('demo-x', {
+        prototype: DemoXProto
+    });
+}
 
 
 DemoX.docify = function(dom) {
