@@ -156,6 +156,9 @@ DemoXProto.execute = function() {
             var log = this.output.innerHTML;
             this.output.innerHTML = '<p class="line">'+
                 DemoX.describe(result)+'</p>' + log;
+            if (result instanceof Error) {
+                console.error(e);
+            }
         } else {
             console.log(code);
             console.log(result);
@@ -219,6 +222,9 @@ DemoX.describe = function(el) {
         return el.value;
     }
     if (typeof el === "object") {
+        if (el instanceof Error) {
+            return 'Error: "'+el.message + (el.code ? '" from "'+el.code : '') + '"';
+        }
         return JSON.stringify(el);
     }
     return el && el.value || (el+'');
