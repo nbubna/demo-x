@@ -1,4 +1,4 @@
-/*! demo-x - v0.1.3 - 2014-12-04
+/*! demo-x - v0.1.4 - 2014-12-04
 * http://esha.github.io/demo-x/
 * Copyright (c) 2014 ESHA Research; Licensed MIT */
 
@@ -9,7 +9,7 @@ var DemoXProto,
     DemoX;
 if (D.registerElement) {
     DemoXProto = Object.create(HTMLElement.prototype);
-    DemoX = { prototype: DemoXProto };
+    DemoX = {};
     // wait to register until all is ready
 } else {
     DemoXProto = {};
@@ -257,7 +257,13 @@ DemoX.flash = function(el) {
 
 // register only after everything is ready
 if (D.registerElement) {
-    DemoX = window.DemoX = D.registerElement('demo-x', DemoX);
+    var utils = DemoX;
+    DemoX = window.DemoX = D.registerElement('demo-x', {
+        prototype: DemoXProto
+    });
+    for (var prop in utils) {
+        DemoX[prop] = utils[prop];
+    }
 }
 
 
