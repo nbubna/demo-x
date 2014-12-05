@@ -142,7 +142,9 @@ DemoXProto.intent = function(el) {
 };
 
 DemoXProto.execute = function() {
-    var code = this.input.value,
+    /*jshint unused:false */
+    var document = this.doc,
+        code = this.input.value,
         result;
     if (code && code.indexOf('//') !== 0) {
         try {
