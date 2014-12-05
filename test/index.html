@@ -21,7 +21,13 @@
   </div>
   <demo-x>
     <demo-in contenteditable>
-      <pre>document.body.children</pre>
+      <pre>// this is a comment
+document.body</pre>
+      <pre>// this should be fast
+document.body.div</pre>
+      <pre>/*
+ this should also be fast
+*/document.body.div[0].textContent</pre>
     </demo-in>
     <demo-out></demo-out>
     <demo-dom x-dot>
