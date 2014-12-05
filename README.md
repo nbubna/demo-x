@@ -17,6 +17,6 @@ Download: [demo-x.min.js][full-min] or [demo-x.js][full]
 [full]: https://raw.github.com/nbubna/demo-x/master/dist/demo-x.js
 
 ### Release History
-* 2014-12-04 [v0.1.4][] (first public release)
+* 2014-12-04 [v0.1.5][] (first public release)
 
-[v0.1.4]: https://github.com/nbubna/domx/tree/0.1.4
+[v0.1.5]: https://github.com/nbubna/domx/tree/0.1.5

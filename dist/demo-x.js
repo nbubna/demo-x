@@ -1,4 +1,4 @@
-/*! demo-x - v0.1.4 - 2014-12-04
+/*! demo-x - v0.1.5 - 2014-12-04
 * http://esha.github.io/demo-x/
 * Copyright (c) 2014 ESHA Research; Licensed MIT */
 
@@ -149,7 +149,9 @@ DemoXProto.intent = function(el) {
 };
 
 DemoXProto.execute = function() {
-    var code = this.input.value,
+    /*jshint unused:false */
+    var document = this.doc,
+        code = this.input.value,
         result;
     if (code && code.indexOf('//') !== 0) {
         try {
@@ -163,6 +165,9 @@ DemoXProto.execute = function() {
             var log = this.output.innerHTML;
             this.output.innerHTML = '<p class="line">'+
                 DemoX.describe(result)+'</p>' + log;
+            if (result instanceof Error) {
+                console.error(e);
+            }
         } else {
             console.log(code);
             console.log(result);
@@ -226,6 +231,9 @@ DemoX.describe = function(el) {
         return el.value;
     }
     if (typeof el === "object") {
+        if (el instanceof Error) {
+            return 'Error: "'+el.message + (el.code ? '" from "'+el.code : '') + '"';
+        }
         return JSON.stringify(el);
     }
     return el && el.value || (el+'');
