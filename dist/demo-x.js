@@ -1,4 +1,4 @@
-/*! demo-x - v0.1.2 - 2014-12-04
+/*! demo-x - v0.1.3 - 2014-12-04
 * http://esha.github.io/demo-x/
 * Copyright (c) 2014 ESHA Research; Licensed MIT */
 
@@ -9,7 +9,8 @@ var DemoXProto,
     DemoX;
 if (D.registerElement) {
     DemoXProto = Object.create(HTMLElement.prototype);
-    // wait to register until prototype is complete
+    DemoX = { prototype: DemoXProto };
+    // wait to register until all is ready
 } else {
     DemoXProto = {};
     DemoX = window.DemoX = function DemoX(el) {
@@ -190,13 +191,6 @@ DemoXProto.animate = function(text, next, update, finish) {
 
 DemoXProto.index = 0;
 
-// ok, register now that prototype is complete
-if (D.registerElement) {
-    DemoX = window.DemoX = D.registerElement('demo-x', {
-        prototype: DemoXProto
-    });
-}
-
 
 DemoX.docify = function(dom) {
     var d = D.createDocumentFragment();
@@ -260,6 +254,11 @@ DemoX.flash = function(el) {
         }, DemoX.flash.time || 100);
     }
 };
+
+// register only after everything is ready
+if (D.registerElement) {
+    DemoX = window.DemoX = D.registerElement('demo-x', DemoX);
+}
 
 
 })(window, document);
