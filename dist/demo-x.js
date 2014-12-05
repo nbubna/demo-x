@@ -1,4 +1,4 @@
-/*! demo-x - v0.1.5 - 2014-12-04
+/*! demo-x - v0.1.6 - 2014-12-04
 * http://esha.github.io/demo-x/
 * Copyright (c) 2014 ESHA Research; Licensed MIT */
 
@@ -34,7 +34,8 @@ if (D.registerElement) {
 DemoXProto.timing = {
     intent: 1000,
     backspace: 25,
-    typing: 50,
+    comment: 10,
+    code: 50,
     tick: 250,
     minTicks: 8
 };
@@ -50,6 +51,7 @@ DemoXProto.createdCallback = function() {
         self.execute();
     };
 
+    self.input.setAttribute('style', 'white-space: pre;');
     if (self.input.children.length) {
         self.initStory();
     }
@@ -153,7 +155,7 @@ DemoXProto.execute = function() {
     var document = this.doc,
         code = this.input.value,
         result;
-    if (code && code.indexOf('//') !== 0) {
+    if (code) {
         try {
             result = eval(code);
             DemoX.flash(result);
@@ -166,7 +168,7 @@ DemoXProto.execute = function() {
             this.output.innerHTML = '<p class="line">'+
                 DemoX.describe(result)+'</p>' + log;
             if (result instanceof Error) {
-                console.error(e);
+                console.error(result);
             }
         } else {
             console.log(code);
@@ -176,17 +178,21 @@ DemoXProto.execute = function() {
 };
 
 DemoXProto.animate = function(text, next, update, finish) {
-    var i = text.length, self = this, action = 'typing';
+    var i = text.length, self = this, action = 'code';
     (function _step() {
         if (!self.stopped) {
             if (next.indexOf(text) < 0) {
                 action = 'backspace';
                 text = text.substr(0, --i);
             } else if (i < next.length) {
-                action = 'typing';
+                action = 'code';
                 text = next.substr(0, ++i);
             } else {
                 return finish();
+            }
+            if (text.indexOf('\n') < text.indexOf('//') ||
+                text.indexOf('*/') < text.indexOf('/*')) {
+                action = 'comment';
             }
             update(text);
             setTimeout(_step, self.timing[action]);
