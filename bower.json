@@ -1,11 +1,11 @@
 {
   "name": "demo-x",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://esha.github.io/demo-x/",
   "authors": [
     "ESHA Research <nathan@esha.com>"
   ],
-  "description": "Interactive, scripted code demo",
+  "description": "Web component for interactive, scripted code demo",
   "main": "dist/demo-x.js",
   "keywords": [
     "domx",
@@ -19,15 +19,15 @@
     "email": "nathan@esha.com",
     "url": "http://www.esha.com/"
   },
-  "bugs": "https://github.com/esha/demo-x/issues",
+  "bugs": "https://github.com/nbubna/demo-x/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com:esha/demo-x.git"
+    "url": "https://github.com:nbubna/demo-x.git"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://raw.githubusercontent.com/esha/demo-x/master/LICENSE-MIT"
+      "url": "https://raw.githubusercontent.com/nbubna/demo-x/master/LICENSE-MIT"
     }
   ],
   "ignore": [

@@ -1,4 +1,4 @@
-/*! demo-x - v0.1.0 - 2014-12-03
+/*! demo-x - v0.1.1 - 2014-12-04
 * http://esha.github.io/demo-x/
 * Copyright (c) 2014 ESHA Research; Licensed MIT */
 
@@ -9,18 +9,19 @@ var DemoXProto,
     DemoX;
 if (D.registerElement) {
     DemoXProto = Object.create(HTMLElement.prototype);
+    DemoXProto.createdCallback = function(){ this.demoize(); };
     DemoX = window.DemoX = D.registerElement('demo-x', {
         prototype: DemoXProto
     });
 } else {
     DemoXProto = {};
     DemoX = window.DemoX = function DemoX(el) {
-        if (!el.createdCallback) {
+        if (!el.demoize) {
             for (var prop in DemoXProto) {
                 Object.defineProperty(el, prop,
                     Object.getOwnPropertyDescriptor(DemoXProto, prop));
             }
-            el.createdCallback();
+            el.demoize();
         }
     };
     DemoX.prototype = DemoXProto;
@@ -40,7 +41,7 @@ DemoXProto.timing = {
     minTicks: 8
 };
 
-DemoXProto.createdCallback = function() {
+DemoXProto.demoize = function() {
     var self = this;
     self.display = self.query('demo-dom');
     self.input = self.query('demo-in');

@@ -1,15 +1,15 @@
 {
   "name": "demo-x",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "DemoX",
-  "description": "Interactive, scripted code demo",
+  "description": "Web component for interactive, scripted code demo",
   "main": "dist/demo-x.js",
   "scripts": {
     "postinstall": "bower install && bower update"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/esha/demo-x.git"
+    "url": "git://github.com/nbubna/demo-x.git"
   },
   "keywords": [
     "domx",
@@ -24,13 +24,13 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/esha/domx-stringify/blob/master/LICENSE-MIT"
+      "url": "https://github.com/nbubna/demo-x/blob/master/LICENSE-MIT"
     }
   ],
   "bugs": {
-    "url": "https://github.com/esha/demo-x/issues"
+    "url": "https://github.com/nbubna/demo-x/issues"
   },
-  "homepage": "https://esha.github.io/demo-x/",
+  "homepage": "https://nbubna.github.io/demo-x/",
   "devDependencies": {
     "bower": "~1.3.12",
     "grunt-contrib-jshint": "~0.6.0",
